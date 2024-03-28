@@ -5,7 +5,7 @@ if(isset($_POST['add_product'])) {
     $product_image = $_FILES['product_image']['name'];
     $product_image_temp_name = $_FILES['product_image']['tmp_name'];
     $product_image_folder = 'images/'.$product_image;
-    $insert_query = mysqli_query($conn,"insert into 'products' (name,price,image) values
+    $insert_query = mysqli_query($conn,"insert into `products` (name,price,image) values
     ('$product_name','$product_price','$product_image')") or die("Insert query failed");
     if($insert_query) {
         move_uploaded_file($product_image_temp_name,$product_image_folder);
@@ -22,7 +22,7 @@ if(isset($_POST['add_product'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -32,7 +32,7 @@ if(isset($_POST['add_product'])) {
         if(isset($display_message)) {
             echo "<div class='display_message'>
             <span>$display_message</span>
-            <i class='fas fa times' onclick='this.parentElement.style.display=`none`';></i>
+            <i class='fas fa-times' onclick='this.parentElement.style.display=`none`';></i>
         </div>";
         }
         ?>
@@ -46,6 +46,6 @@ if(isset($_POST['add_product'])) {
             </form>
         </section>
     </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
