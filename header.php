@@ -6,6 +6,10 @@
             <a href="view_products.php">View Products</a>
             <a href="shop_products.php">Shopit</a>
         </nav>
-        <a href="" class="cart"><i class="fa-solid fa-cart-shopping"></i><span><sup></sup>4</span></a>
+        <?php
+        $select_product = mysqli_query($conn,"Select * from `cart`") or die('query failed');
+        $row_count = mysqli_num_rows($select_product);
+        ?>
+        <a href="cart.php" class="cart"><i class="fa-solid fa-cart-shopping"></i><span><sup><?php echo $row_count?></sup></span></a>
     </div>
 </header>
