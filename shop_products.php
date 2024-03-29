@@ -5,7 +5,7 @@ if(isset($_POST['add_to_cart'])) {
     $products_price = $_POST['product_price'];
     $products_image = $_POST['product_image'];
     $product_quantity = 1;
-    $select_cart = mysqli_query($conn,"Select * from `cart` where name=`$products_name`");
+    $select_cart = mysqli_query($conn,"Select * from `cart` where name='$products_name'");
     if(mysqli_num_rows($select_cart)>0) {
         $display_message[] = "Product already added to cart";
     }
@@ -21,7 +21,7 @@ if(isset($_POST['add_to_cart'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -48,7 +48,7 @@ if(isset($_POST['add_to_cart'])) {
                         <form method="post" action="">
                             <div class="edit_form">
                                 <img src="images/<?php echo $fetch_product['image']?>" alt="">
-                                <h3><?php echo $fetch_product['name']?>Headphone</h3>
+                                <h3><?php echo $fetch_product['name']?></h3>
                                 <div class="price">Price: <?php echo $fetch_product['price']?>/-</div>
                                 <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']?>">
                                 <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']?>">
